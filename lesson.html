@@ -8,14 +8,24 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{message}}</h1>
+        <div class="lesson">
+            <p>Subject: {{lesson.subject}}</p>
+            <p>Location: {{lesson.location}}</p>
+            <p>Price: {{lesson.price}}</p>
+            <p>Spaces: {{lesson.spaces}}</p>
+        </div>
     </div>    
 <script>
     var app = new Vue({
         el: '#app',
         data(){
             return{
-                message:'Hello World'
+                lesson: {
+                subject:'Physics',
+                location:'Frankfurt',
+                price:'£40',
+                spaces:5
+         }
             }
         }  
     })
