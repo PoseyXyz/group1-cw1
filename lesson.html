@@ -13,7 +13,8 @@
             <p>Location: {{lesson.location}}</p>
             <p>Price: {{lesson.price}}</p>
             <p>Spaces: {{lesson.spaces}}</p>
-            <button v-on:click="addToCart" v-if="lesson.spaces > 0">Add to cart</button>
+            </p>   
+            <button v-on:click="addToCart" v-if="lesson.spaces > 0" >Add to cart</button>
             <button disabled=true v-else>Add to cart</button>
         </div>
     </div>    
@@ -27,9 +28,8 @@
                 location:'Frankfurt',
                 price:'£40',
                 spaces:5
-         }, 
-       
-            }
+                 }, 
+             }
         },
         methods:{
             addToCart:()=> {
@@ -38,5 +38,40 @@
         }
     })
 </script>
+<style>
+    body{
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+        font-family: Garamond, serif;
+    }
+    #app{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        background:linear-gradient(100deg, #eff0f3 45%, #ff8e3c 0);
+        min-height:100vh;
+    }
+    .lesson{
+        padding: 1rem;
+        border-radius: 9%;
+        background: #fffffe;
+        font-size: 1.9rem;
+    }
+    .lesson button{
+      background:#ff8e3c;  
+      padding: .5rem 1rem;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      transition:.5s;
+      float: right;
+      color: #fff;
+    }
+    .lesson button:hover{
+        background: #d9376e;
+    }
+</style>
 </body>
 </html>
