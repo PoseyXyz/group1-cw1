@@ -13,6 +13,8 @@
             <p>Location: {{lesson.location}}</p>
             <p>Price: {{lesson.price}}</p>
             <p>Spaces: {{lesson.spaces}}</p>
+            <button v-on:click="addToCart" v-if="lesson.spaces > 0">Add to cart</button>
+            <button disabled=true v-else>Add to cart</button>
         </div>
     </div>    
 <script>
@@ -25,9 +27,15 @@
                 location:'Frankfurt',
                 price:'£40',
                 spaces:5
-         }
+         }, 
+       
             }
-        }  
+        },
+        methods:{
+            addToCart:()=> {
+               app.lesson.spaces = app.lesson.spaces-1
+            }
+        }
     })
 </script>
 </body>
