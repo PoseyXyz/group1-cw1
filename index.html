@@ -9,13 +9,18 @@
 <body>
     <div id="app">
         <div class="lesson">
-            <p>Subject: {{lesson.subject}}</p>
-            <p>Location: {{lesson.location}}</p>
-            <p>Price: {{lesson.price}}</p>
-            <p>Spaces: {{lesson.spaces}}</p>
+            <div class="lesson-img">
+                <img v-bind:src="lesson.imageUrl" alt="">
+            </div>
+            <div class="lesson-info">
+             <p><span>Subject:</span> {{lesson.subject}}</p>
+            <p><span>Location:</span> {{lesson.location}}</p>
+            <p><span>Price:</span> {{lesson.price}}</p>
+            <p><span>Spaces</span> {{lesson.spaces}}</p>
             </p>   
             <button v-on:click="addToCart" v-if="lesson.spaces > 0" >Add to cart</button>
             <button disabled=true v-else>Add to cart</button>
+            </div>
         </div>
     </div>    
 <script>
@@ -27,7 +32,8 @@
                 subject:'Physics',
                 location:'Frankfurt',
                 price:'£40',
-                spaces:5
+                spaces:5,
+                imageUrl:'images/physics.png'
                  }, 
              }
         },
@@ -56,9 +62,22 @@
         padding: 1rem;
         border-radius: 9%;
         background: #fffffe;
-        font-size: 1.9rem;
+        font-size: 1.8rem;
+        display: flex;
+        flex-direction: row;
+        border-left: 2px solid #ff8e3c;
+        border-top: 2px solid #ff8e3c;
+        border-bottom: 2px solid #ff8e3c;
     }
-    .lesson button{
+  .lesson-img{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .lesson-img img{
+    max-width: 13rem
+  }
+    .lesson-info button{
       background:#ff8e3c;  
       padding: .5rem 1rem;
       border-radius: 5px;
@@ -71,6 +90,17 @@
     }
     .lesson button:hover{
         background: #d9376e;
+    }
+    .lesson-info p span{
+        font-weight: bold;
+    }
+    @media screen and (max-width: 760px) {
+        .lesson{ 
+            font-size: 1.1rem;
+        }
+        .lesson-img img{
+            max-width: 8rem;
+        }
     }
 </style>
 </body>
